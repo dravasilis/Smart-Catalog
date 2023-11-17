@@ -1,8 +1,16 @@
 <div id="hotelSelection" class="flex w-[15%] justify-evenly relative top-10">
-    <app-button></app-button>
-    <button class="p-6  bg-gradient-to-r from-white rounded-[20px] font-serif
-                   hover:bg-indigo-100 duration-300">
-        Hotel Melissanthi
-    </button> 
+    <ng-container  *ngFor="let item of buttons">
+        <app-button [isSelected]="isSelected===item" (isSelectedChange)="isSelected=item">{{item}}</app-button>
+    </ng-container>
 </div>
-<div></div>
+<div class="flex items-center  flex-col">
+    <a *ngFor="let item of menu" class="flex w-[40%]  items-center mb-2 rounded-[20px] shadow-2xl  hover:bg-gradient-to-r from-slate-50" routerLink="">
+        <div>
+            <img class="w-[220px] h-[150px] rounded-l-[10px]" [src]="item.image" alt="">
+        </div>
+        <div class="flex items-center bg-gradient-to-r from-white w-[350px] h-[150px] p-6">
+            <p class="text-base font-serif">{{item.title}}</p>
+        </div>
+        
+    </a>
+</div>
