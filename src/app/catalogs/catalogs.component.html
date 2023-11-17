@@ -1,0 +1,11 @@
+<div id="catalogs" class="flex items-center flex-col pt-6">
+    <a *ngFor="let catalog of catalogs" routerLink='/catalog/{{catalog.id}}'>  
+        <div>
+            <img class="w-[256px] h-[160px] rounded-t-[20px]" src="{{catalog.image}}">
+        </div>
+        
+        <div class="mb-8 bg-gradient-to-r from-white h-[50px] rounded-b-[20px] p-2">
+            <p class="relative  p-2">{{catalog.title}}</p>
+        </div>
+    </a>
+</div>

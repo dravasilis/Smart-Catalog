@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "~@ng-select/ng-select/themes/default.theme.css";
+ 
+body{
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/smart-catalog-a2538.appspot.com/o/businesses%2F1594191941805.jpg?alt=media&amp;token=918f29d6-800f-4993-9573-edf9e1084226');
+    background-size: cover;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.ng-dropdown-panel.ng-select-bottom{  
+    height: 500px;
+} 
+.ng-dropdown-panel.ng-select-top {
+    bottom: 0px ;
+    top: 38px; 
+    width: 200px;
+}
+.ng-dropdown-panel-items{ 
+    max-height: 100% !important; 
+}
+.ng-dropdown-panel {
+    position: relative !important;
+}
+.ng-select-container{
+    background-image: url('https://sc-mobile.web.app/flags/gb.png') ; 
+    object-fit: contain;
+    opacity: 0; 
+} 
+.ng-input{
+    width: 0;
+    
+}
+.ng-select-container{
+    width: 70px !important;
+    height: 35px !important;
+    position: absolute !important;
+    right: 20px !important;
+    top: 0px !important;
+}
+.ng-select {
+    display: flex !important;
+}
+.ng-arrow-wrapper{
+    width: 75px !important;
+    height: 45px !important;
+    right: 5px !important;
+} 
+@keyframes fadein{
+    from {
+        opacity: 0;
+        transform: translateY(5%);
+    }
+    to { opacity: 1 }
+}
+#catalogs{ 
+    -webkit-animation: fadein 1s;
+}
+@keyframes fadein2{
+    from {
+        opacity: 0;
+        transform: translatex(-2%);
+    }
+    to { opacity: 1 }
+}
+#hotelSelection{
+    -webkit-animation: fadein2 0.5s;
+}
