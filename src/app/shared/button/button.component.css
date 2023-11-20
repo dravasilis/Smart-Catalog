@@ -1,0 +1,6 @@
+.btn-change{
+    background-color:white
+}
+.btn-default{ 
+    background-image: linear-gradient(to right, rgb(221, 212, 212) , rgba(255, 255, 255, 0.478)); 
+}

@@ -1,25 +1,63 @@
-import { Component } from '@angular/core';
+import { Component,Input,OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { HotelServiceService } from '../services/hotel-service.service';
+import { Hotel } from '../interfaces/hotel'; 
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-the-hotel',
   templateUrl: './the-hotel.component.html',
   styleUrls: ['./the-hotel.component.css']
 })
-export class TheHotelComponent { 
-  isSelected = 'Halkidiki';
+export class TheHotelComponent implements OnInit{ 
+  constructor(private router:Router,
+              private hotelService: HotelServiceService,
+              private route: ActivatedRoute
+    ){   } 
+
+  //VARIABLES
   buttons=['Halkidiki','Hotel Melissanthi'];
-  menu = [{
-    image: 'https://firebasestorage.googleapis.com/v0/b/smart-catalog-a2538.appspot.com/o/products%2F__business_legacy_39%2F1582206065805_product.jpg?alt=media&token=f37367b5-50c9-4087-9127-b5ea7384c5ea',
-    title: 'Map'
-  },
-  {
-    image: 'https://firebasestorage.googleapis.com/v0/b/smart-catalog-a2538.appspot.com/o/products%2F__business_legacy_39%2F1582205702041_product.jpg?alt=media&token=e324a934-2c43-4ee3-a5ff-3bb41e7f44e6',
-    title: 'Beach Bars'
-  },
-  {
-    image: 'https://firebasestorage.googleapis.com/v0/b/smart-catalog-a2538.appspot.com/o/products%2F__business_legacy_39%2F1582206110037_product.jpg?alt=media&token=907b3bf0-f30f-4451-b107-856cb2fb867c',
-    title: 'Events-Concerts-Theatre'
-  }];
+  params = '';
+  isSelected = 'Halkidiki';
+ 
+  Halkidiki:Hotel[] = this.hotelService.Halkidiki;
+  Melissanthi:Hotel[] = this.hotelService.Melissanthi;
+  
+  ngOnInit(): void { 
+    //getting params
+    this.route.queryParams.subscribe(params =>{
+      this.params = params['place'];
+    })
+    //arxikh timh param
+    if(this.params == undefined){
+      this.params = 'Halkidiki';
+      this.router.navigate(['catalog/1'],{
+        queryParams: {
+          place: this.isSelected
+        }
+      })  
+    }   
+    this.isSelected = this.params 
+  }
+  onClick(){ 
+    //setting params
+    this.router.navigate(['catalog/1'],{
+      queryParams: {
+        place: this.isSelected
+      }
+    })  
+  }
+  setSelected(index:number){
+    console.log(index)
+    if(this.isSelected == 'Halkidiki'){
+      this.hotelService.setSelected(this.Halkidiki[index]) 
+      this.router.navigateByUrl(`/catalog/1/Halkidiki/${this.Halkidiki[index].title}`)
+    }
+    else if(this.isSelected == 'Hotel Melissanthi'){
+      this.hotelService.setSelected(this.Melissanthi[index]);
+      this.router.navigateByUrl(`/catalog/1/Halkidiki/${this.Halkidiki[index].title}`)
+    }
+  }
 }
 
 

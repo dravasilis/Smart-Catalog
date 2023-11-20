@@ -15,7 +15,8 @@ import { TheHotelComponent } from './the-hotel/the-hotel.component';
 import { MenuComponent } from './menu/menu.component';
 import { BeveragesComponent } from './beverages/beverages.component';
 import { SpiritsComponent } from './spirits/spirits.component';
-import { ButtonComponent } from './button/button.component'; 
+import { ButtonComponent } from './shared/button/button.component';
+import { SelectedOptionComponent } from './shared/selected-option/selected-option.component'; 
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ButtonComponent } from './button/button.component';
     MenuComponent,
     BeveragesComponent,
     SpiritsComponent,
-    ButtonComponent
+    ButtonComponent,
+    SelectedOptionComponent
   ],
   imports: [
     BrowserModule,

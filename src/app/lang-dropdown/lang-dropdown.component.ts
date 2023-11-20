@@ -4,7 +4,8 @@ import { Language } from '../interfaces/language';
 @Component({
   selector: 'app-lang-dropdown',
   templateUrl: './lang-dropdown.component.html',
-  styleUrls: ['./lang-dropdown.component.css']
+  styleUrls: ['./lang-dropdown.component.css'] 
+  
 })
 export class LangDropdownComponent {
   @Output()

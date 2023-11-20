@@ -1,16 +1,35 @@
-<div id="hotelSelection" class="flex w-[15%] justify-evenly relative top-10">
+ 
+<div id="hotelSelection" class="flex p-2 mt-2 gap-2">
     <ng-container  *ngFor="let item of buttons">
-        <app-button [isSelected]="isSelected===item" (isSelectedChange)="isSelected=item">{{item}}</app-button>
+        <app-button [isSelected]="isSelected===item" (isSelectedChange)="isSelected=item" (click)="onClick()">{{item}}</app-button>
     </ng-container>
 </div>
-<div class="flex items-center  flex-col">
-    <a *ngFor="let item of menu" class="flex w-[40%]  items-center mb-2 rounded-[20px] shadow-2xl  hover:bg-gradient-to-r from-slate-50" routerLink="">
-        <div>
-            <img class="w-[220px] h-[150px] rounded-l-[10px]" [src]="item.image" alt="">
-        </div>
-        <div class="flex items-center bg-gradient-to-r from-white w-[350px] h-[150px] p-6">
-            <p class="text-base font-serif">{{item.title}}</p>
-        </div>
-        
-    </a>
-</div>
+ 
+<ng-container *ngIf="isSelected ==='Halkidiki' ">
+    <div id="hotelSelection" class="flex items-center  flex-col gap-3">
+        <a *ngFor="let item of Halkidiki; index as i" class="flex w-[100%]  items-center  rounded-[5px]" (click)="setSelected(i)" routerLink="/{{isSelected}}/{{item.title}}">
+            <div>
+                <img class="w-[128px] h-[112px] rounded-l-[10px] object-cover" [src]="item.image" alt="">
+            </div>
+            <div class="flex items-center bg-gradient-to-r from-white w-[350px] h-[112px] p-6">
+                <p class="text-base font-serif">{{item.title}}</p>
+            </div>
+            
+        </a>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="isSelected === 'Hotel Melissanthi'">
+    <div id="hotelSelection" class="flex items-center  flex-col gap-3">
+        <a *ngFor="let item of Melissanthi; index as i" class="flex w-[100%]  items-center   rounded-[5px]" (click)="setSelected(i)" routerLink="/{{isSelected}}/{{item.title}}">
+            <div>
+                <img class="w-[128px] h-[112px] rounded-l-[10px] object-cover" [src]="item.image" alt="">
+            </div>
+            <div class="flex items-center bg-gradient-to-r from-white w-[350px] h-[112px] p-6">
+                <p class="text-base font-serif">{{item.title}}</p>
+            </div>
+            
+        </a>
+    </div>
+</ng-container>
+<router-outlet></router-outlet>
