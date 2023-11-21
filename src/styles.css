@@ -6,7 +6,7 @@
  
 body{
     background-image: url('https://firebasestorage.googleapis.com/v0/b/smart-catalog-a2538.appspot.com/o/businesses%2F1594191941805.jpg?alt=media&amp;token=918f29d6-800f-4993-9573-edf9e1084226');
-    background-size: cover;
+    background-size: cover; 
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

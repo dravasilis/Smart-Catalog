@@ -18,26 +18,38 @@ export class TheHotelComponent implements OnInit{
   //VARIABLES
   buttons=['Halkidiki','Hotel Melissanthi'];
   params = '';
-  isSelected = 'Halkidiki';
- 
+  isSelected = '';
   Halkidiki:Hotel[] = this.hotelService.Halkidiki;
   Melissanthi:Hotel[] = this.hotelService.Melissanthi;
   
-  ngOnInit(): void { 
+  //ONINIT
+  ngOnInit(): void {  
     //getting params
     this.route.queryParams.subscribe(params =>{
       this.params = params['place'];
     })
-    //arxikh timh param
-    if(this.params == undefined){
-      this.params = 'Halkidiki';
+    //arxikh timh params
+    if(this.params == undefined){ 
+      this.params = 'Halkidiki'; 
+    }     
+    //to button pou einai selected
+    if(this.hotelService.params == ''){
+      this.isSelected = this.params 
+      this.router.navigate(['catalog/1'],{
+        queryParams: {
+          place: this.isSelected
+        }
+      })   
+    }
+    else if(this.hotelService.params !== ''){ 
+      this.isSelected = this.hotelService.params
       this.router.navigate(['catalog/1'],{
         queryParams: {
           place: this.isSelected
         }
       })  
-    }   
-    this.isSelected = this.params 
+    }
+     
   }
   onClick(){ 
     //setting params
@@ -46,16 +58,25 @@ export class TheHotelComponent implements OnInit{
         place: this.isSelected
       }
     })  
+    this.hotelService.setParams(this.route.snapshot.queryParams['place'])
   }
-  setSelected(index:number){
-    console.log(index)
+  setSelected(index:number){ 
+    //current url parameters
+    const currentParams = this.route.snapshot.queryParams;
+
     if(this.isSelected == 'Halkidiki'){
-      this.hotelService.setSelected(this.Halkidiki[index]) 
-      this.router.navigateByUrl(`/catalog/1/Halkidiki/${this.Halkidiki[index].title}`)
+      this.hotelService.setSelected(this.Halkidiki[index])  
+        this.router.navigate([this.Halkidiki[index].title], 
+          {relativeTo: this.route,
+           queryParams: currentParams
+          })
     }
     else if(this.isSelected == 'Hotel Melissanthi'){
       this.hotelService.setSelected(this.Melissanthi[index]);
-      this.router.navigateByUrl(`/catalog/1/Halkidiki/${this.Halkidiki[index].title}`)
+      this.router.navigate([this.Melissanthi[index].title], 
+        {relativeTo: this.route,
+         queryParams: currentParams
+        })
     }
   }
 }

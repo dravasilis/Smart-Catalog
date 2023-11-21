@@ -16,7 +16,7 @@ const routes: Routes = [
     component: CatalogInfoComponent 
   },
   {
-    path: 'catalog/:id/:hotel/:param',
+    path: 'catalog/:id/:title',
     component: SelectedOptionComponent 
   }
    
