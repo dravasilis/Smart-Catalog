@@ -12,11 +12,11 @@ const routes: Routes = [
   },
   {
     //catalog path
-    path: 'catalog/:id',
+    path: 'catalog/:name',
     component: CatalogInfoComponent 
   },
   {
-    path: 'catalog/:id/:title',
+    path: 'catalog/:name/:title',
     component: SelectedOptionComponent 
   }
    

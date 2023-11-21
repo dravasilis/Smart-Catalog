@@ -1,5 +1,5 @@
 <div id="catalogs" class="flex items-center flex-col pt-6">
-    <a *ngFor="let catalog of catalogs" routerLink='/catalog/{{catalog.id}}'>  
+    <a *ngFor="let catalog of catalogs" routerLink='/catalog/{{catalog.title}}' (click)="onClick(catalog.title)">  
         <div>
             <img class="w-[256px] h-[160px] rounded-t-[20px]" src="{{catalog.image}}">
         </div>

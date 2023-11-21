@@ -11,12 +11,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { CatalogsComponent } from './catalogs/catalogs.component';
 import { CatalogInfoComponent } from './catalog_info/catalog_info.component';
 import { LangDropdownComponent } from './lang-dropdown/lang-dropdown.component';
-import { TheHotelComponent } from './the-hotel/the-hotel.component';
-import { MenuComponent } from './menu/menu.component';
-import { BeveragesComponent } from './beverages/beverages.component';
-import { SpiritsComponent } from './spirits/spirits.component';
+import { TheHotelComponent } from './shared/dataTemplate/the-hotel.component'; 
 import { ButtonComponent } from './shared/button/button.component';
 import { SelectedOptionComponent } from './shared/selected-option/selected-option.component'; 
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 @NgModule({
   declarations: [
@@ -25,10 +23,7 @@ import { SelectedOptionComponent } from './shared/selected-option/selected-optio
     CatalogsComponent,
     CatalogInfoComponent,
     LangDropdownComponent,
-    TheHotelComponent,
-    MenuComponent,
-    BeveragesComponent,
-    SpiritsComponent,
+    TheHotelComponent, 
     ButtonComponent,
     SelectedOptionComponent
   ],
@@ -36,7 +31,8 @@ import { SelectedOptionComponent } from './shared/selected-option/selected-optio
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule, 
-    NgSelectModule
+    NgSelectModule,
+    DragScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]
