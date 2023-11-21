@@ -54,3 +54,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 #hotelSelection{
     -webkit-animation: fadein2 0.5s;
 }
+#content{
+    -webkit-animation: fadein2 0.5s;
+}

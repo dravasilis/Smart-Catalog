@@ -1,9 +1,12 @@
-<button class="absolute left-2 top-2 w-[3%]  text-indigo-100 font-bold p-[8px] pl-[10px] pr-[10px] rounded-lg bg-gradient-to-r from-black"  routerLink="..">back</button>
-<div class="relative top-[20px] h-[100%] bg-gradient-to-r from-bondi-blue-100 ">
-    <img src="{{selected?.image}}" class="w-[390px] h-[420px] object-cover ">
-    <div class="shadow-2xl">
-        <p class="p-3 font-mono text-lg font-bold ">{{selected?.title}}</p>
-        <p *ngIf="selected?.subtitle" class="pl-4 relative bottom-4 font-serif italic">{{selected?.subtitle}}</p>
+<button class="absolute left-2 top-2  text-indigo-100 font-bold p-[8px] pl-[10px] pr-[10px] rounded-lg bg-slate-800"  routerLink="..">back</button>
+<div id="content"> 
+    <div class="relative top-[20px] h-[100%] bg-gradient-to-r from-bondi-blue-600 ">
+        <img src="{{selected?.image}}" class="w-[390px] h-[420px] object-cover rounded-[10px] border-2 border-slate-700">
+        <div class="shadow-2xl">
+            <p class="p-3 font-mono text-lg font-bold text-slate-200">{{selected?.title}}</p>
+            <p *ngIf="selected?.subtitle" class="pl-4 relative bottom-4 font-serif italic text-slate-200">{{selected?.subtitle}}</p>
+        </div>
+        
     </div>
-    
 </div>
+
