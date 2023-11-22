@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, OnDestroy, EventEmitter } from '@angular/core';
-import { Hotel } from 'src/app/interfaces/hotel';
+import { IContent } from 'src/app/interfaces/IContent';
 import { HotelServiceService } from 'src/app/services/contentService';
 import { ActivatedRoute } from '@angular/router';
 
@@ -14,8 +14,9 @@ export class SelectedOptionComponent implements OnDestroy{
       private service:HotelServiceService ,
       private route: ActivatedRoute
     ){ }  
-    ngOnDestroy(): void {
-      this.service.setParams(this.route.snapshot.queryParams['place'])  
+    ngOnDestroy(): void { 
+
+
     }
-  selected:Hotel | null = this.service.selected; 
+  selected:IContent | null = this.service.selected; 
 }
